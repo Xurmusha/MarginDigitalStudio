@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import CheckboxForContent from "./CheckboxForContent";
 
 
 const DesignContent = (props) => {
+    const [compModal, setCompModal] = useState(false);
+    const [compModal2, setCompModal2] = useState(false);
     const unique = (
         <div id="UniqueModal">
             <div className="d-flex">
@@ -24,7 +26,8 @@ const DesignContent = (props) => {
                         </div>
 
                         <div className="card-footer border-top-0 bg-transparent mt-5">
-                            <button className="btn btn-light d-flex align-items-center" onClick={props.toggle}>
+                            <button className="btn btn-light d-flex align-items-center"
+                                    onClick={() => setCompModal(false)}>
                                 <img src="VectorX.png" alt=""/><span
                                 className="ml-3 pb-2 text-secondary"> закрыть </span>
                             </button>
@@ -58,7 +61,8 @@ const DesignContent = (props) => {
                         </div>
 
                         <div className="card-footer border-top-0 bg-transparent mt-2 mb-3">
-                            <button className="btn btn-light d-flex align-items-center" >
+                            <button className="btn btn-light d-flex align-items-center"
+                                    onClick={() => setCompModal2(false)}>
                                 <img src="VectorX.png" alt=""/><span
                                 className="ml-3 pb-2 text-secondary"> закрыть </span>
                             </button>
@@ -88,7 +92,8 @@ const DesignContent = (props) => {
                                                                     text1="Дизайн по " text2="готовому шаблону"
                                                                     textSize="36px" class="d-none" classText="pl-3"
                                                                     classTextTwo="pl-3" classBrouser="d-none"
-                                                                    classForLabel="pr-5"/>
+                                                                    classForLabel="pr-5"
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -102,7 +107,11 @@ const DesignContent = (props) => {
                                                                     textSize="36px" classText="pl-3"
                                                                     classTextTwo="pl-3" modalForDesign={unique}
                                                                     classImage="d-none" classBrouser="d-none"
-                                                                    classForLabel="pr-5"/>
+                                                                    classForLabel="pr-5"
+                                                                    customClose={true}
+                                                                    changeModal={setCompModal}
+                                                                    modalVisible={compModal}
+                                                />
                                             </div>
                                         </div>
                                     </div>
@@ -116,7 +125,10 @@ const DesignContent = (props) => {
                                                                     textSize="36px" classText="pl-3"
                                                                     modalForDesign={premium}
                                                                     classImage="d-none" classBrouser="d-none"
-                                                                    classForLabel="pr-5"/>
+                                                                    classForLabel="pr-5"
+                                                                    customClose={true}
+                                                                    changeModal={setCompModal2}
+                                                                    modalVisible={compModal2}/>
                                             </div>
                                         </div>
                                     </div>

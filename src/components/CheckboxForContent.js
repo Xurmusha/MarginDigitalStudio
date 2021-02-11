@@ -37,7 +37,7 @@ const CheckboxForContent = (props) => {
                 </div>
 
 
-                <a href="#" onClick={toggle}>
+                <a href="#" onClick={props.customClose ? () => props.changeModal(true) : toggle}>
                     <img src="VectorInfo.png" alt="" className={props.class}/>
                 </a>
 
@@ -48,15 +48,16 @@ const CheckboxForContent = (props) => {
 
                 <div className={props.classBrouser}>
                     <form action="" className="d-flex mt-3">
-                        <div> <Brousers id="opera" nameBrouser="Opera, FireFox"/> </div>
-                        <div><Brousers id="safari" nameBrouser="Iphone Safari"/></div>
-                        <div><Brousers id="internetEx" nameBrouser="Internet Explorer"/></div>
+                        <div> <Brousers id={"opera" + Math.random()} nameBrouser="Opera, FireFox"/> </div>
+                        <div><Brousers id={"safari" + Math.random()}  nameBrouser="Iphone Safari"/></div>
+                        <div><Brousers id={"internetExp" + Math.random()}  nameBrouser="Internet Explorer"/></div>
 
                     </form>
                 </div>
 
             </label>
-            <Modal isOpen={modal} toggle={toggle}>
+            <Modal isOpen={props.customClose ? props.modalVisible : modal}
+                   toggle={props.customClose ? () => props.changeModal(false) : toggle}>
                 {props.modalForDesign}
             </Modal>
         </div>
